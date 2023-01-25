@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Artist;
 use App\Models\Artwork;
+use App\Models\Museum;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Faker\Generator as Faker;
@@ -24,9 +25,10 @@ class ArtworksTableSeeder extends Seeder
         foreach ($artwork_data as $artwork) {
             $new_artwork = new Artwork();
             //dump($artwork['artist']);
-            $artist_id = Artist::where('name','like','%' . $artwork['artist'] .'%')->first()->id;
+            $new_artwork->artist_id = Artist::where('name','like','%' . $artwork['artist'] .'%')->first()->id;
 
-            $new_artwork->artist_id = $artist_id;
+            $new_artwork->museum_id = Museum::inRandomOrder()->first()->id;
+
             $new_artwork->name = $artwork['name'];
             $new_artwork->slug = generateSlug($new_artwork->name,$new_artwork,$str);
             $new_artwork->year = $artwork['year'];
@@ -38,6 +40,7 @@ class ArtworksTableSeeder extends Seeder
             $new_artwork = new Artwork();
             $artist_id = Artist::inRandomOrder()->first()->id;
             $new_artwork->artist_id = $artist_id;
+            $new_artwork->museum_id = Museum::inRandomOrder()->first()->id;
             $new_artwork->name = $faker->name();
             $new_artwork->slug = generateSlug($new_artwork->name,$new_artwork,$str);
             $new_artwork->year = $faker->year();

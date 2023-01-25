@@ -20,6 +20,13 @@ return new class extends Migration
                     ->references('id')
                     ->on('artists')
                     ->cascadeOnDelete();
+
+            $table->unsignedBigInteger('museum_id');
+            $table->foreign('museum_id')
+                    ->references('id')
+                    ->on('museums')
+                    ->cascadeOnDelete();
+
             $table->string('name');
             $table->string('slug')->unique();
             $table->string('image')->nullable();

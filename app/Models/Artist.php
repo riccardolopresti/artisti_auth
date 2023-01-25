@@ -14,6 +14,8 @@ class Artist extends Model
         return $this->hasMany(Artwork::class);
     }
 
+
+
     public static function generateSlug($string){
         $slug = Str::slug($string, '-');
 
