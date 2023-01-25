@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Artist;
+use App\Models\Artwork;
 use Illuminate\Http\Request;
 
 class ArtistController extends Controller
