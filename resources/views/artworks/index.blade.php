@@ -43,6 +43,7 @@
                         @endforeach
                     </tbody>
                 </table>
+                {{$all_artworks->links()}}
             </div>
         </div>
     </div>
