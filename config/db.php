@@ -35,9 +35,9 @@ return [
             'name' => 'Pierre-Auguste Renoir'
         ],
         [
-            'id'      => 9,
-            'name' => 'Salvador Dalì',
-        ],
+            'id'   => 9,
+            'name' => 'Salvador Dalì'
+        ]
     ],
     'museums' => [
         [
