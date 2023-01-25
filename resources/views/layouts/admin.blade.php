@@ -21,7 +21,13 @@
 <body>
 
     @include('partials.header')
+
+    @guest()
+
+    @else
     @include('partials.aside')
+
+    @endguest
 
 
 
