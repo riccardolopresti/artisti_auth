@@ -44,14 +44,7 @@
                                 <td>
                                     <a class="btn btn-success" href="{{route('admin.artwork.show',$artwork)}}">Show</a>
                                     <a class="btn btn-warning" href="">Edita</a>
-                                    <form action="" method="POST" class="d-inline"
-                                        onsubmit="return confirm('Confermi l\'eliminazione di: {{ $artwork->name }}?')"
-                                        class="d-inline" action="" method="POST">
-
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger">Elimina</button>
-                                    </form>
+                                    @include('artworks.partials.form_delete')
                                 </td>
                             </tr>
                         @endforeach
