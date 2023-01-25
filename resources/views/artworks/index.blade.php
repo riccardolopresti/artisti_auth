@@ -1,21 +1,7 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+@extends('layouts.admin')
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+@section('content')
 
-    <title>Artist - Artwork</title>
-
-    <!-- Fonts -->
-    <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-
-    <!-- Styles -->
-    @vite('resources/js/app.js')
-
-</head>
-
-<body class="bg-dark vh-100 d-flex justify-content-center flex-column align-items-center">
     <h1 class="text-center text-white mb-5">
         ARTWORKS DB
     </h1>
@@ -60,6 +46,6 @@
             </div>
         </div>
     </div>
-</body>
 
-</html>
+
+@endsection

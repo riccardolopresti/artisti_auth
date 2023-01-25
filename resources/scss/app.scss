@@ -22,3 +22,12 @@ aside{
         height:100%;
     }
 }
+
+main{
+    padding: 20px;
+    height:calc(100vh - 55px);
+    width:calc(100% - 200px);
+    position: fixed;
+    right: 0;
+    bottom: 0;
+}
