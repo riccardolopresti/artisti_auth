@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Artist;
 use App\Models\Artwork;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ArtistController extends Controller
 {
@@ -43,10 +44,11 @@ class ArtistController extends Controller
         $new_artist = new Artist();
 
         $new_artist->name = $form_data['name'];
+        $new_artist->slug = Artist::generateSlug($form_data['name']);
 
         $new_artist->save();
 
-        return redirect(route('artist.index'));
+        return redirect()->route('admin.artist.index');
     }
 
     /**
@@ -66,9 +68,9 @@ class ArtistController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Artist $artist)
     {
-        //
+        return view('artist.edit', compact('artist'));
     }
 
     /**
@@ -78,9 +80,17 @@ class ArtistController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Artist $artist)
     {
-        //
+        $form_data=$request->all();
+        if($form_data['name'] != $artist->name){
+            $form_data['slug']=Artist::generateSlug($form_data['name']);
+        }else{
+            $form_data['slug']=$artist->slug;
+        }
+        $artist->update($form_data);
+
+        return redirect()->route('admin.artist.show', $artist);
     }
 
     /**
@@ -89,8 +99,9 @@ class ArtistController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Artist $artist)
     {
-        //
+        $artist->delete();
+        return redirect()->route('admin.artist.index');
     }
 }
