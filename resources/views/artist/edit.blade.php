@@ -6,8 +6,8 @@
             @csrf
             @method('PUT')
             <label for="name" class="form-label">NOME ARTISTA</label>
-            <input name="name" type="text" class="form-control my-3" id="name" placeholder="Inserisci nome artista" name={{old('name', $artist->name)}}>
-            <button class="btn btn-success" type="submit">AGGIUNGI</button>
+            <input name="name" type="text" class="form-control my-3" id="name" placeholder="Modifica nome artista" value={{old('name', $artist->name)}}>
+            <button class="btn btn-success" type="submit">Aggiorna</button>
         </form>
     </div>
 @endsection
