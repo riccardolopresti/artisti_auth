@@ -18,7 +18,7 @@
                             <h5 class="card-title fw-bold">{{ $artwork->name }}</h5>
                             <h6> {{ $artwork->year }} </h6>
                             <p class="card-text"> {{ $artwork->description }} </p>
-                            <a href=" {{-- {{route('admin.artworks.show', $artwork)}} --}} " class="btn btn-primary">Vedi</a>
+                            <a href="{{route('admin.artist.show', $artist)}}" class="btn btn-primary">Vedi</a>
                         </div>
                     </div>
                 </div>
@@ -30,7 +30,7 @@
 
 
     <div class="d-flex justify-content-center py-5">
-        <a class="btn btn-warning" href="">MODIFICA</a>
+        <a class="btn btn-warning" href="{{route('admin.artist.edit', $artist)}}">MODIFICA</a>
         <a class="btn btn-danger mx-3" href="">ELIMINA</a>
     </div>
 @endsection
